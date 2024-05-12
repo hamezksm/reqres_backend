@@ -27,4 +27,5 @@ class UserLoginViewSet(viewsets.ViewSet):
                 return Response({'message': 'Login successful', 'user_id': user.id}, status=status.HTTP_200_OK)
             else:
                 return Response({'message': 'Unable to log in with provided credentials'}, status=status.HTTP_400_BAD_REQUEST)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
